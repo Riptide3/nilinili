@@ -22,11 +22,18 @@ func NewRouter() *gin.Engine {
 	{
 		v1.POST("ping", api.Ping)
 
-		// 用户登录
+		// 用户注册
 		v1.POST("user/register", api.UserRegister)
 
 		// 用户登录
 		v1.POST("user/login", api.UserLogin)
+
+		// 视频投稿
+		v1.POST("videos", api.CreateVideo)
+		// v1.GET("video/:id", api.ShowVideo)
+		// v1.GET("videos", api.ListVideo)
+		// v1.PUT("video/:id", api.UpdateVideo)
+		// v1.DELETE("video/:id", api.DeleteVideo)
 
 		// 需要登录保护的
 		auth := v1.Group("")
