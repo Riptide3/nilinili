@@ -19,9 +19,9 @@ func (service *CreateVideoService) Create() serializer.Response {
 	}
 	if err := model.DB.Create(&video).Error; err != nil {
 		return serializer.Response{
-			Code: 5001,
-			Msg:    "视频保存失败",
-			Error:  err.Error(),
+			Code:  5001,
+			Msg:   "视频保存失败",
+			Error: err.Error(),
 		}
 	}
 	return serializer.BuildVideoResponse(video)

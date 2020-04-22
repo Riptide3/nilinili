@@ -1,9 +1,9 @@
 package server
 
 import (
-	"os"
 	"nilinili/api"
 	"nilinili/middleware"
+	"os"
 
 	"github.com/gin-gonic/gin"
 )
@@ -27,7 +27,7 @@ func NewRouter() *gin.Engine {
 
 		// 用户登录
 		v1.POST("user/login", api.UserLogin)
-		
+
 		// 需要登录保护的
 		auth := v1.Group("")
 		auth.Use(middleware.AuthRequired())
@@ -40,7 +40,7 @@ func NewRouter() *gin.Engine {
 		// 视频投稿
 		v1.POST("videos", api.CreateVideo)
 		v1.GET("video/:id", api.ShowVideo)
-		// v1.GET("videos", api.ListVideo)
+		v1.GET("videos", api.ListVideo)
 		// v1.PUT("video/:id", api.UpdateVideo)
 		// v1.DELETE("video/:id", api.DeleteVideo)
 	}
